@@ -78,7 +78,6 @@
 - [🟢 Server Status](#-server-status)
 - [🤝 Bug Reports & Feedback](#-bug-reports--feedback)
 - [📜 Changelog](#-changelog)
-- [📦 Recent Changes](#-recent-changes-010x--0140)
 - [🛣️ Roadmap & Future of the Project](#️-roadmap--future-of-the-project)
 - [👤 Author](#-author)
 - [🇫🇷 Version Française](#-version-française)
@@ -299,29 +298,6 @@ All notable releases — from the first public alpha to the latest beta — are 
 
 ---
 
-## 📦 Recent Changes (0.10.x → 0.14.0)
-
-### New
-- **New name: Axovox** (formerly AuroriaLink) — shorter, memorable, aligned with the Axomind ecosystem. Same product, same code, new identity
-- **27 themes** (up from 16) — each with light and dark variants, Aurora animations and glassmorphism
-- **33 languages** — full UI translation with native language flags
-- **Native spell check** — in-house fork of `native_spell_checker` with French + English support, Levenshtein suggestions, smart filtering of URLs/emails/mentions
-- **Quota system** — rebuilt client-side quota management with subscription plan parameters
-
-### Improved
-- **Rich text editor** — TextAreaEditor and TextAreaViewerStatic stability and scroll fixes
-- **Mobile animations** — performance fixes
-- **File picker** — selection fix
-- **Language flags** — visual update
-
-### Infrastructure
-- **CI/CD pipeline** — rewritten for Forgejo (debian:bookworm-slim + pinned Flutter + manual Android SDK)
-- **Flutter, Dart SDK and Android AGP** upgraded
-- **Shared core** — migrated to shared package
-- **Tests** — restructured to match Axomind layout (593 tests across 53 files)
-
----
-
 ## 🛣️ Roadmap & Future of the Project
 
 ### Current hosting — a deliberate choice, not the endgame
@@ -354,7 +330,7 @@ AI plays a real role in how I work, but the model stays explicit: **every decisi
 
 **Multi-provider, not single-vendor.** Hands-on practice covers the major US providers (Anthropic, OpenAI, Google), Chinese models, and the full self-hosted catalog reachable through Ollama — each one evaluated on real tasks, not on benchmarks taken at face value. The point isn't to bet on one model; it's to know which one fits which problem.
 
-**Tests as ground truth for the AI itself.** Over 500 automated tests and a full CI/CD pipeline — format check, static analysis, unit tests, integration tests, multi-platform builds, load benchmarks — don't just protect the app. They're the standard the AI checks its own work against. Every critical path can be replayed against real conditions, so AI-assisted changes are validated by measurable returns, not by impressions.
+**Tests as ground truth for the AI itself.** Over 800 automated tests and a full CI/CD pipeline — format check, static analysis, unit tests, integration tests, multi-platform builds, load benchmarks — don't just protect the app. They're the standard the AI checks its own work against. Every critical path can be replayed against real conditions, so AI-assisted changes are validated by measurable returns, not by impressions.
 
 On that practical baseline, Axovox integrates with AI agents through the **Bot API** — send automated messages from CI/CD, monitoring, or automation tools (n8n, Zapier, Make...). Any MCP-compatible client can connect to the Axomind MCP server, which exposes Axovox messaging actions where a bot is assigned.
 
@@ -607,29 +583,6 @@ Toutes les versions notables — de la première alpha publique à la dernière 
 
 ---
 
-## 📦 Changements récents (0.10.x → 0.14.0)
-
-### Nouveautés
-- **Nouveau nom : Axovox** (anciennement AuroriaLink) — plus court, mémorable, aligné avec l'écosystème Axomind. Même produit, même code, nouvelle identité
-- **27 thèmes** (contre 16 auparavant) — chacun avec variante claire et sombre, animations Aurora et glassmorphism
-- **33 langues** — traduction complète de l'interface avec drapeaux natifs
-- **Correcteur orthographique natif** — fork maison de `native_spell_checker` avec support français + anglais, suggestions Levenshtein, filtrage intelligent des URLs/emails/mentions
-- **Système de quotas** — gestion des quotas côté client reconstruite avec paramètres de plan d'abonnement
-
-### Améliorations
-- **Éditeur de texte riche** — correctifs de stabilité et de scroll sur TextAreaEditor et TextAreaViewerStatic
-- **Animations mobile** — correctifs de performance
-- **Sélecteur de fichiers** — correctif
-- **Drapeaux de langues** — mise à jour visuelle
-
-### Infrastructure
-- **Pipeline CI/CD** — réécrit pour Forgejo (debian:bookworm-slim + Flutter pinné + Android SDK manuel)
-- **Flutter, Dart SDK et Android AGP** mis à niveau
-- **Code partagé** — migré vers un package commun
-- **Tests** — restructurés selon la disposition Axomind (593 tests dans 53 fichiers)
-
----
-
 ## 🛣️ Roadmap & Avenir du projet
 
 ### Hébergement actuel — un choix assumé, pas une finalité
@@ -662,7 +615,7 @@ L'IA joue un rôle réel dans ma façon de travailler, mais le modèle reste cla
 
 **Multi-fournisseurs, pas mono-éditeur.** Ma pratique couvre les principaux fournisseurs américains (Anthropic, OpenAI, Google), les modèles chinois, et l'ensemble du catalogue autohébergé accessible via Ollama — chacun évalué sur des tâches réelles, pas sur des benchmarks pris au mot. L'objectif n'est pas de miser sur un modèle, c'est de savoir lequel répond à quel problème.
 
-**Les tests comme vérité terrain pour l'IA elle-même.** Plus de 500 tests automatisés et un pipeline CI/CD complet — vérification de format, analyse statique, tests unitaires, tests d'intégration, builds multi-plateforme, benchmarks de charge — ne protègent pas seulement l'application. Ils sont le standard contre lequel l'IA confronte son propre travail. Chaque point critique peut être rejoué en conditions réelles, donc les modifications assistées par IA sont validées par des retours mesurables, pas par des impressions.
+**Les tests comme vérité terrain pour l'IA elle-même.** Plus de 800 tests automatisés et un pipeline CI/CD complet — vérification de format, analyse statique, tests unitaires, tests d'intégration, builds multi-plateforme, benchmarks de charge — ne protègent pas seulement l'application. Ils sont le standard contre lequel l'IA confronte son propre travail. Chaque point critique peut être rejoué en conditions réelles, donc les modifications assistées par IA sont validées par des retours mesurables, pas par des impressions.
 
 Sur cette base pratique, Axovox s'intègre aux agents IA via l'**API Bot** — envoyez des messages automatisés depuis vos outils CI/CD, monitoring ou plateformes d'automatisation (n8n, Zapier, Make...). N'importe quel client MCP peut se connecter au serveur MCP Axomind, qui expose les actions de messagerie Axovox là où un bot est affecté.
 
