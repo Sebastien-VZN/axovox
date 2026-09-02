@@ -5,6 +5,33 @@ Full release notes: [GitHub releases](https://github.com/Sebastien-VZN/axovox/re
 
 ---
 
+## [beta_0.14.4] — 2026-09-03
+
+### Windows — single instance (fix)
+- The app could previously be opened multiple times on Windows: clicking a toast notification or relaunching the executable started a new process instead of bringing back the running one (the close button only hides the window to the system tray, so duplicate processes piled up: two tray icons, two live connections, concurrent local database writes)
+- Axovox now enforces a single instance: a second launch brings the existing window back to the foreground — even when it was hidden in the tray — and exits instantly
+- Clicking a toast notification now restores the running app and opens the relevant page, instead of spawning a duplicate
+
+### Linux — single instance (fix)
+- The same duplicate-process issue existed on Debian: the default Flutter Linux template explicitly disabled GtkApplication's native single-instance behavior
+- Axovox now uses the native D-Bus single-instance mechanism: a second launch forwards its arguments to the running instance, presents its window and exits — same behavior as Windows, including toast payload routing
+
+### Security — logout data purge
+- Logging out now clears in-memory session state before touching the disk: the open conversation's messages, active bots, and the outgoing account's theme and language preferences are wiped — the next account signing in on the same machine inherits nothing from the previous one
+- A failure to delete the local cache folder (e.g. a file still locked by the OS on Windows) no longer aborts the rest of the logout chain
+
+### Messenger
+- Online/offline indicator now also shown in the user profile sheet; group name added to the group profile sheet
+- First-visit panels (no contacts yet / no groups yet) now show the navigation button on mobile
+
+### Maintenance
+- Windows notifications: stable AppUserModelId and a dedicated notification GUID, so Axovox and Axomind can coexist on the same machine without registry conflicts
+- Uploads rejected because the server storage is full now show a dedicated message instead of a generic error
+- Language package updates across the 33 supported languages
+- Flutter and Android Gradle upgrades
+
+---
+
 ## [beta_0.14.1] — 2026-08-21
 
 - GitHub workflow fixes after the AuroriaLink → Axovox rename

@@ -5,6 +5,33 @@ Notes de version complètes : [GitHub releases](https://github.com/Sebastien-VZN
 
 ---
 
+## [beta_0.14.4] — 2026-09-03
+
+### Windows — instance unique (correctif)
+- L'application pouvait auparavant être ouverte plusieurs fois sous Windows : un clic sur une notification toast ou un relancement de l'exécutable démarrait un nouveau process au lieu de reprendre celui en cours (la croix de fermeture se contente de cacher la fenêtre dans la barre système, les process en double s'accumulaient : deux icônes systray, deux connexions temps réel, écritures concurrentes dans la base locale)
+- Axovox impose désormais une instance unique : un second lancement ramène la fenêtre existante au premier plan — même cachée dans le systray — puis se termine instantanément
+- Le clic sur une notification toast restaure désormais l'application en cours et ouvre la page concernée, au lieu de créer un doublon
+
+### Linux — instance unique (correctif)
+- Le même problème de process en double existait sous Debian : le template Linux par défaut de Flutter désactivait explicitement le comportement d'instance unique natif de GtkApplication
+- Axovox utilise désormais le mécanisme natif D-Bus : un second lancement transmet ses arguments à l'instance en cours, présente sa fenêtre puis se termine — même comportement que sous Windows, routage du payload de notification inclus
+
+### Sécurité — purge des données à la déconnexion
+- La déconnexion purge désormais l'état mémoire de la session avant le disque : messages de la conversation ouverte, bots actifs, thème et langue du compte sortant sont vidés — le compte suivant connecté sur la même machine n'hérite de rien du précédent
+- Un échec de suppression du dossier de cache local (ex. fichier encore verrouillé par l'OS sous Windows) n'interrompt plus le reste de la chaîne de déconnexion
+
+### Messagerie
+- L'indicateur de connexion en ligne/hors ligne apparaît désormais aussi dans la fiche utilisateur ; le nom du groupe a été ajouté à la fiche de groupe
+- Les panneaux de première visite (aucun contact / aucun groupe) affichent désormais le bouton de navigation sur mobile
+
+### Maintenance
+- Notifications Windows : AppUserModelId stable et GUID de notification dédié, pour qu'Axovox et Axomind puissent coexister sur la même machine sans conflit de registre
+- Les uploads rejetés car le stockage serveur est saturé affichent désormais un message dédié au lieu d'une erreur générique
+- Mise à jour du package de langage sur les 33 langues supportées
+- Montées en version de Flutter et d'Android Gradle
+
+---
+
 ## [beta_0.14.1] — 2026-08-21
 
 - Correctifs du workflow GitHub après le renommage AuroriaLink → Axovox
